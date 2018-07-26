@@ -4,12 +4,21 @@
   "private": true,
   "author": "milan <grzegorz.od.tych.milanowskich@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "dev": "node src/server.js",
+    "webpack": "webpack -dw"
+  },
   "dependencies": {
     "express": "^4.16.3",
     "react": "^16.4.1",
     "react-dom": "^16.4.1"
   },
   "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
     "webpack": "^4.12.1",
     "webpack-cli": "^3.0.8"
   }
