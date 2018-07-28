@@ -1,27 +1,33 @@
 import React, { Component } from 'react';
 import TimeDisplay from './TimeDisplay';
-import store from '../store/index';
+import storeGen from '../store/index';
+import { Provider } from './appContext';
 
 class App extends Component {
-  state = store.state;
-
-  componentDidMount() {
-    store.on('change', () => {
-      this.setState(store.state);
-    });
-  }
-
   render() {
     return (
       <div className="demo">
         Hello World (App)
         <input />
-        <TimeDisplay time={this.state.time} />
+        <TimeDisplay />
       </div>
     );
   }
 }
-export default App;
+
+class Root extends Component {
+  store = storeGen();
+
+  render() {
+    return (
+      <Provider value={this.store}>
+        <App />
+      </Provider>
+    );
+  }
+}
+
+export default Root;
 
 // 109:29 eslint --init
 // ctrl+alt+f auto prettier code (in atom)
